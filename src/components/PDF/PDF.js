@@ -8,7 +8,7 @@ var pdfFileName;
 
 function HTMLtoPDF(){
     var pdf = new jsPDF('p', 'pt', 'letter');
-    var source = pdfData ||"Hello, world!";
+    var source = pdfData ||"<h1>Hello, world!</h1>";
     // source = $('#HTMLtoPDF')[0];
     var specialElementHandlers = {
         '#bypassme': function(element, renderer){
@@ -31,7 +31,7 @@ function HTMLtoPDF(){
           function (dispose) {
             // dispose: object with X, Y of the last line add to the PDF
             //          this allow the insertion of new lines after html
-            pdf.save(pdfFileName||'helloworld.pdf');
+            pdf.save(pdfFileName||'diagram.pdf');
           }
       )		
     }
@@ -40,6 +40,7 @@ export const PDF = ({PDFrequest}) => {
     return (
         // button that yields pdf
         <button
+        className="pdfButton"
         onClick={HTMLtoPDF}
         >Generate PDF</button>
     );
