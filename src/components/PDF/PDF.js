@@ -1,11 +1,75 @@
 import React from "react";
 import "./PDF.css";
 import jsPDF from "jspdf";
-// import "jquery";
+// import Project from "../../models/Project.js";
 
-var pdfData;
-var pdfFileName;
-var pdfHTML = pdfData
+// DUMMY Project OBJECT STANDING IN FOR DATABASE OBJECT FOR PDF GENERATOR
+const Project = {
+    user: {
+        username: "Mr Bill"
+    },
+    name: "Scene 5 Film Shoot",
+    loads: [
+        {
+            name: "Rooftop 2k",
+            current: 1.6,
+            phase: "single",
+            connection: "L1",
+            type: "resistive"
+        },{
+            name: "Rooftop 4k",
+            current: 3.2,
+            phase: "three",
+            connection: null,
+            type: "inductive"
+        }
+    ]
+};
+
+// CONSTANTS GRABBING MODEL DATA
+const userName = Project.user.username;
+const projectName = Project.name;
+const projectLoads = Project.loads;
+
+// FUNCTION TO MAKE NEW ROWS
+function loadRowFunc(projectLoads){
+    let newRows = "";
+    for (let i = 0; i<projectLoads.length; i++){
+        const newRow = 
+        "<tr><td>"+projectLoads[i].name+
+        "</td><td>"+projectLoads[i].current+
+        "</td><td>"+projectLoads[i].phase+
+        "</td><td>"+projectLoads[i].connection+
+        "</td><td>"+projectLoads[i].type+
+        "</td></tr>"
+        ;
+        newRows += newRow;
+    }
+    return newRows;
+}
+
+// THE MODEL UPON WHICH OUR PDF WILL BUILD
+var modelPDF =
+`<div>
+    <h1>ZigRig Run Diagram</h1>
+    <h2>${userName}</h2>
+    <h2>${projectName}</h2>
+    <table>
+        <tr>
+            <th>Loads</th>
+            <th>Current</th>
+            <th>Phase</th>
+            <th>Connection</th>
+            <th>Type</th>
+        </tr>
+        ${loadRowFunc(projectLoads)}
+    </table>
+</div>`;
+
+// var pdfData;
+var pdfFileName = Project? ""+userName+"."+projectName+""
+:undefined;
+var pdfHTML = modelPDF ||
 `<div>
     <h1>ZigRig Run Diagram</h1>
     <h2>T.Novell Diagram #1014</h2>
@@ -65,7 +129,7 @@ var pdfHTML = pdfData
 
 function HTMLtoPDF(){
     var pdf = new jsPDF('p', 'pt', 'letter');
-    var source = pdfData || pdfHTML;
+    var source = Project?modelPDF:pdfHTML;
     // source = $('#HTMLtoPDF')[0];
     var specialElementHandlers = {
         '#bypassme': function(element, renderer){
@@ -105,7 +169,7 @@ function HTMLtoPDF(){
           function (dispose) {
             // dispose: object with X, Y of the last line add to the PDF
             //          this allow the insertion of new lines after html
-            pdf.save(pdfFileName||'diagram.pdf');
+            pdf.save(pdfFileName ||'diagram.pdf');
           }
     )		
 }
