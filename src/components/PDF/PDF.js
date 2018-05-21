@@ -5,7 +5,7 @@ import jsPDF from "jspdf";
 
 var pdfData;
 var pdfFileName;
-var pdfHTML = 
+var pdfHTML =
 `<div>
     <h1>ZigRig Run Diagram</h1>
     <h2>T.Novell Diagram #1014</h2>
