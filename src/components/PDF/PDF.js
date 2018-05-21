@@ -14,13 +14,13 @@ const Project = {
             name: "Rooftop 2k",
             current: 1.6,
             phase: "single",
-            connection: "L1",
+            connections: "L1",
             type: "resistive"
         },{
             name: "Rooftop 4k",
             current: 3.2,
             phase: "three",
-            connection: null,
+            connections: null,
             type: "inductive"
         }
     ]
@@ -39,7 +39,7 @@ function loadRowFunc(projectLoads){
         "<tr><td>"+projectLoads[i].name+
         "</td><td>"+projectLoads[i].current+
         "</td><td>"+projectLoads[i].phase+
-        "</td><td>"+projectLoads[i].connection+
+        "</td><td>"+projectLoads[i].connections+
         "</td><td>"+projectLoads[i].type+
         "</td></tr>"
         ;
