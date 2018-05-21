@@ -11,8 +11,8 @@ var pdfHTML = pdfData
     <h2>T.Novell Diagram #1014</h2>
     <table>
         <tr>
-            <th>Draws</th>
-            <th>Voltage</th>
+            <th>Loads</th>
+            <th>Connection\nType</th>
             <th>Current</th>
             <th>Leg 1</th>
             <th>Leg 2</th>
@@ -20,7 +20,7 @@ var pdfHTML = pdfData
         </tr>
         <tr>
             <td>Rooftop 20k #1</td>
-            <td>120/208V</td>
+            <td>3 Phase</td>
             <td>166.6</td>
             <td>83.3A</td>
             <td>83.3A</td>
@@ -28,7 +28,7 @@ var pdfHTML = pdfData
         </tr>
         <tr>
             <td>Rooftop 20k #2</td>
-            <td>120/208V</td>
+            <td>3 Phase</td>
             <td>166.6</td>
             <td>83.3A</td>
             <td>-----</td>
@@ -36,7 +36,7 @@ var pdfHTML = pdfData
         </tr>
         <tr>
             <td>Rooftop 20k #3</td>
-            <td>120/208V</td>
+            <td>3 Phase</td>
             <td>166.6</td>
             <td>-----</td>
             <td>83.3A</td>
@@ -44,7 +44,7 @@ var pdfHTML = pdfData
         </tr>
         <tr>
             <td>Rooftop 10k #1</td>
-            <td>120/208V</td>
+            <td>3 Phase</td>
             <td>83.3A</td>
             <td>41.65A</td>
             <td>41.65A</td>
