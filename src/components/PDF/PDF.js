@@ -5,7 +5,7 @@ import jsPDF from "jspdf";
 
 var pdfData;
 var pdfFileName;
-var pdfHTML =
+var pdfHTML = pdfData
 `<div>
     <h1>ZigRig Run Diagram</h1>
     <h2>T.Novell Diagram #1014</h2>
@@ -43,7 +43,7 @@ var pdfHTML =
             <td>83.3A</td>
         </tr>
         <tr>
-            <td>Rooftop 10k #3</td>
+            <td>Rooftop 10k #1</td>
             <td>120/208V</td>
             <td>83.3A</td>
             <td>41.65A</td>
@@ -107,8 +107,8 @@ function HTMLtoPDF(){
             //          this allow the insertion of new lines after html
             pdf.save(pdfFileName||'diagram.pdf');
           }
-      )		
-    }
+    )		
+}
 
 export const PDF = ({PDFrequest}) => {
     return (
